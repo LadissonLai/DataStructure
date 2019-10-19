@@ -11,7 +11,7 @@ namespace _001_排序算法
         static void Main(string[] args)
         {
 
-
+            Console.WriteLine("");
 
         }
     }
