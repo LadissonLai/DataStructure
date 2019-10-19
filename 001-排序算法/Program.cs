@@ -13,7 +13,7 @@ namespace _001_排序算法
 
             Console.WriteLine("");
             Console.WriteLine("第一个排序算法");
-
+            Console.ReadKey();
         }
     }
 }
