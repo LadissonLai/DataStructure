@@ -195,6 +195,37 @@ namespace _003_Graph
                 v.isVisited = false;
             }
         }
+
+        private void SearchPath(Vertex<T> startVertex)
+        {
+            Node node = startVertex.firstEdge;
+            if (node != null)
+            {
+
+            }
+
+        }
+
+        /// <summary>
+        /// 获取有向图的入度
+        /// </summary>
+        /// <param name="vertex">图中的点</param>
+        /// <returns></returns>
+        private List<Vertex<T>> GetInDegree(Vertex<T> vertex)
+        {
+
+        }
+
+        /// <summary>
+        /// 获取有向图的出度
+        /// </summary>
+        /// <param name="vertex"></param>
+        /// <returns></returns>
+        private List<Vertex<T>> GetOutDegree(Vertex<T> vertex)
+        {
+
+        }
+
         #endregion
 
         #region 遍历方法：深度优先遍历与广度优先遍历
