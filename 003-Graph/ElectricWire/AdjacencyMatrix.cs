@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace 图
+namespace _003_Graph
 {
-    class Program
+    class AdjacencyMatrix
     {
-        static void Main(string[] args)
-        {
 
-        }
     }
 }

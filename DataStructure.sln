@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29424.173
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001-排序算法", "001-排序算法\001-排序算法.csproj", "{38DA6997-24AA-48A1-B3B6-A576A4685655}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "002-线性表", "002-线性表\002-线性表.csproj", "{CC9EFF5C-D6C7-44DA-84FC-1557B76DD8D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "图", "图\图.csproj", "{CA1C6F5E-B2A0-467E-96CA-87D92F08F7E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "003-Graph", "003-Graph\003-Graph.csproj", "{F1144A9F-40E2-4114-B337-DE61387FD84E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{CC9EFF5C-D6C7-44DA-84FC-1557B76DD8D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC9EFF5C-D6C7-44DA-84FC-1557B76DD8D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC9EFF5C-D6C7-44DA-84FC-1557B76DD8D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CA1C6F5E-B2A0-467E-96CA-87D92F08F7E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA1C6F5E-B2A0-467E-96CA-87D92F08F7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA1C6F5E-B2A0-467E-96CA-87D92F08F7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA1C6F5E-B2A0-467E-96CA-87D92F08F7E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1144A9F-40E2-4114-B337-DE61387FD84E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1144A9F-40E2-4114-B337-DE61387FD84E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1144A9F-40E2-4114-B337-DE61387FD84E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1144A9F-40E2-4114-B337-DE61387FD84E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
