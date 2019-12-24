@@ -46,13 +46,25 @@ namespace _003_Graph
             dirAdjList.AddVertex("B");
             dirAdjList.AddVertex("C");
             dirAdjList.AddVertex("D");
+            dirAdjList.AddVertex("E");
+            dirAdjList.AddVertex("F");
             // 添加有向边
+            //dirAdjList.AddDirectedEdge("A", "B");
+            //dirAdjList.AddDirectedEdge("A", "C");
+            //dirAdjList.AddDirectedEdge("A", "D");
+            //dirAdjList.AddDirectedEdge("B", "D");
+
             dirAdjList.AddDirectedEdge("A", "B");
-            dirAdjList.AddDirectedEdge("A", "C");
+            dirAdjList.AddDirectedEdge("B", "C");
             dirAdjList.AddDirectedEdge("A", "D");
-            dirAdjList.AddDirectedEdge("B", "D");
+            dirAdjList.AddDirectedEdge("B", "E");
+            dirAdjList.AddDirectedEdge("C", "F");
 
             Console.Write(dirAdjList.GetGraphInfo(true));
+            Console.WriteLine("\n搜索两点路径:");
+            dirAdjList.SearchPath("A", "F");
+            dirAdjList.SearchPath("A", "E");
+            dirAdjList.SearchPath("F", "A");
         }
         #endregion
 

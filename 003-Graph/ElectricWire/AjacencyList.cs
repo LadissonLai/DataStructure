@@ -12,7 +12,7 @@ namespace _003_Graph
     /// <typeparam name="T">类型</typeparam>
     public class AdjacencyList<T> where T : class
     {
-        private List<Vertex<T>> items;  // 图的顶点集合
+        public List<Vertex<T>> items;  // 图的顶点集合
 
         public AdjacencyList()
             : this(10)
@@ -196,16 +196,6 @@ namespace _003_Graph
             }
         }
 
-        private void SearchPath(Vertex<T> startVertex)
-        {
-            Node node = startVertex.firstEdge;
-            if (node != null)
-            {
-
-            }
-
-        }
-
         /// <summary>
         /// 获取有向图的入度
         /// </summary>
@@ -213,7 +203,7 @@ namespace _003_Graph
         /// <returns></returns>
         private List<Vertex<T>> GetInDegree(Vertex<T> vertex)
         {
-
+            return null;
         }
 
         /// <summary>
@@ -223,7 +213,51 @@ namespace _003_Graph
         /// <returns></returns>
         private List<Vertex<T>> GetOutDegree(Vertex<T> vertex)
         {
+            return null;
+        }
 
+        /// <summary>
+        /// 搜索两点之间的路径
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        private void FindPath2Points(Vertex<T> from,Vertex<T> to)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(from.data.ToString());
+            if(from.firstEdge != null)
+            {
+                Node node = from.firstEdge;
+                sb.Append("->" + node.adjvex.data.ToString());
+                if (node.adjvex == to)
+                {
+                    Console.WriteLine(sb.ToString());
+                    sb.Remove(sb.Length - 1, 1);
+                }
+                else
+                {
+                    node = node.adjvex.firstEdge;
+                    if(node != null)
+                    {
+
+                    }
+                }
+
+                while (node.next != null)
+                {
+                    node = node.next;
+                    if(node.adjvex == to)
+                    {
+                        sb.Append("->" + node.adjvex.data.ToString());
+                        Console.WriteLine(sb.ToString());
+                        sb.Remove(sb.Length - 1, 1);
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
         }
 
         #endregion
@@ -255,6 +289,86 @@ namespace _003_Graph
                     DFS(node.adjvex); // 递归访问node的邻接顶点
                 }
                 node = node.next; // 访问下一个邻接点
+            }
+        }
+
+        private Stack<Vertex<T>> stack = new Stack<Vertex<T>>();
+        private bool hasPath = false;
+        private void SearchPathByDFS(Vertex<T> start,Vertex<T> end)
+        {
+            start.isVisited = true;
+            stack.Push(start);
+            if (start == end)
+            {
+                hasPath = true;
+                //打印路径信息
+                List<Vertex<T>> resultList = new List<Vertex<T>>();
+                int stackCount = stack.Count;
+                for (int i = 0; i < stackCount; i++)
+                {
+                    resultList.Add(stack.Pop());
+                }
+                for (int j = resultList.Count - 1; j >= 0; j--)
+                {
+                    if (j == 0)
+                    {
+                        Console.Write(resultList[j].data.ToString());
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.Write(resultList[j].data.ToString() + "->");
+                    }
+                }
+                for (int i = resultList.Count - 1; i >= 0; i--)
+                {
+                    stack.Push(resultList[i]);
+                }
+                //退回到上一个节点，继续寻找
+                stack.Pop();
+                start.isVisited = false;
+                return;
+            }
+
+            Node node = start.firstEdge;
+            if (node == null)  //边缘节点
+            {
+                stack.Pop();
+                start.isVisited = false;
+                return;
+            }
+
+            while (node != null)
+            {
+                if (!node.adjvex.isVisited)
+                {
+                    SearchPathByDFS(node.adjvex, end);
+                }
+
+                if (node.next == null)
+                {
+                    stack.Pop();
+                    node.adjvex.isVisited = false;
+                }
+                node = node.next;
+            }
+        }
+
+        /// <summary>
+        /// 搜索两个点之间的所有路径
+        /// </summary>
+        /// <param name="start">起始点</param>
+        /// <param name="end">终点</param>
+        public void SearchPath(T start, T end)
+        {
+            Vertex<T> startVex = Find(start);
+            Vertex<T> endVex = Find(end);
+            InitVisited();
+            hasPath = false;
+            SearchPathByDFS(startVex, endVex);
+            if (!hasPath)
+            {
+                Console.WriteLine(string.Format("这两个点{0}、{1}之间没有路径！", start.ToString(), end.ToString()));
             }
         }
 
@@ -333,10 +447,11 @@ namespace _003_Graph
         /// 嵌套类：存放于数组中的表头节点
         /// </summary>
         /// <typeparam name="TValue"></typeparam>
-        protected class Vertex<TValue>
+        public class Vertex<TValue>
         {
             public TValue data;     // 数据
             public Node firstEdge;  // 邻接点链表头指针
+            public bool isOn; // 判断设备开闭状态
             public bool isVisited;  // 访问标志：遍历时使用
 
             public Vertex()
@@ -355,7 +470,7 @@ namespace _003_Graph
         /// <summary>
         /// 嵌套类：链表中的表节点
         /// </summary>
-        protected class Node
+        public class Node
         {
             public Vertex<T> adjvex;    // 邻接点域
             public Node next;           // 下一个邻接点指针域
