@@ -46,6 +46,8 @@
     <Compile Include="ElectricWire\AdjacencyMatrix.cs" />
     <Compile Include="ElectricWire\AjacencyList.cs" />
     <Compile Include="ElectricWire\OrthogonalList.cs" />
+    <Compile Include="ElectricWire\MyAdjList.cs" />
+    <Compile Include="ListExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -11,11 +11,11 @@ namespace _003_Graph
         static void Main(string[] args)
         {
             // Test01
-            MyAdjacencyListTest();
+            //MyAdjacencyListTest();
             // Test02
             //AdjacencyListTraverseTest();
-            
 
+            MySelfTest();
             Console.ReadKey();
         }
 
@@ -129,6 +129,28 @@ namespace _003_Graph
             // BFS遍历
             numAdjList.BFSTraverse4NUG();
         }
+        #endregion
+
+        #region 我的图测试
+        static void MySelfTest()
+        {
+            Console.WriteLine("------------有向图------------");
+            MyAdjList<string> dirAdjList = new MyAdjList<string>();
+            // 添加顶点
+            dirAdjList.AddVertex("A");
+            dirAdjList.AddVertex("B");
+            dirAdjList.AddVertex("C");
+            dirAdjList.AddVertex("D");
+            // 添加有向边
+            dirAdjList.AddDirectedEdge("A", "B");
+            dirAdjList.AddDirectedEdge("A", "C");
+            dirAdjList.AddDirectedEdge("A", "D");
+            dirAdjList.AddDirectedEdge("B", "D");
+            dirAdjList.AddDirectedEdge("D", "C");
+
+            dirAdjList.DFS("A");
+        }
+
         #endregion
 
     }
